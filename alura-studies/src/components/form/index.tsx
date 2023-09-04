@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../button';
 import style from './form.module.scss';
 import { ITask } from '../../types/task';
+import { v4 as uuidv4 } from 'uuid';
 
 class Form extends React.Component<{
     setTarefas: React.Dispatch<React.SetStateAction<ITask[]>>
@@ -19,7 +20,8 @@ class Form extends React.Component<{
                 {
                     ...this.state,
                     selecionado: false,
-                    completado: false
+                    completado: false,
+                    id: uuidv4()
                 }
             ])
         this.setState({ tarefa: "", tempo: "00:00" })
